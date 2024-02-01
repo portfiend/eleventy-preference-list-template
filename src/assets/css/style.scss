@@ -12,3 +12,57 @@
     }
   }
 }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: #ccc;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  margin-bottom: 1em;
+  background: white;
+  border-bottom: 5px solid black;
+  
+  ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin: auto;
+    max-width: 720px;
+  }
+  
+  li {
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+
+    &:not(:last-child) {
+      border-right: 1px solid rgba(0,0,0,0.5);
+    }
+  }
+  
+  a {
+    display: block;
+    padding: 1em;
+    transition: background-color 200ms;
+
+    &:hover, &[aria-current=page] {
+      background-color: #ddd;
+    }
+  }
+}
+
+.box {
+  margin: auto;
+  max-width: 720px;
+  border: 5px solid black;
+  box-sizing: border-box;
+  padding: 1em 2em;
+  background: white;
+  border-radius: 1em;
+}

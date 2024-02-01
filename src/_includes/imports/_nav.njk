@@ -1,0 +1,16 @@
+{% set links = {
+	"Home": "/",
+	"Lists": "/lists/"
+} %}
+<nav>
+	
+	<ul>
+		{% for key, value in links %}
+			<li>
+				<a href="{{value}}" {{ page.url === value and 'aria-current=page' or "" }}>
+					{{key}}
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+</nav>
