@@ -18,6 +18,21 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("./src/assets/");
 	eleventyConfig.addWatchTarget("./src/assets/");
 
+	loadConfigModules(eleventyConfig);
 	return this.returnOptions;
 };
 
+function loadConfigModules(eleventyConfig) {
+	const paths = fs.readdirSync("./_config/");
+	for (const p in paths) {
+		const path = paths[p];
+		if (!path.endsWith(".js")) {
+			return;
+		}
+		const _module = require("./_config/" + path);
+		const options = _module(eleventyConfig);
+		if (options) {
+			this.returnOptions = { ...this.returnOptions, ...options };
+		}
+	}
+}
