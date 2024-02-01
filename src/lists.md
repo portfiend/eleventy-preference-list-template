@@ -1,5 +1,5 @@
 ---
-layout: base.njk
+layout: page.njk
 pageTitle: All Lists
 ---
 
