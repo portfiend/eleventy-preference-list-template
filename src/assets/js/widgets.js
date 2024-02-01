@@ -1,6 +1,24 @@
 const tabs = {};
 
 document.addEventListener("DOMContentLoaded", () => {
+	initTabLists();
+	initCollapsibleLists();
+});
+
+const initCollapsibleLists = () => {
+	const collapsibleLists = document.querySelectorAll(".collapsible");
+	for (let c = 0; c < collapsibleLists.length; c++) {
+		const list = collapsibleLists[c];
+		const button = list.querySelector(":scope > header .collapsible-button");
+
+		button.addEventListener("click", () => {
+			const expanded = list.ariaExpanded === "true";
+			list.ariaExpanded = !expanded;
+		});
+	}
+};
+
+const initTabLists = () => {
 	const tabLists = document.querySelectorAll('[role="tablist"]');
 	for (let l = 0; l < tabLists.length; l++) {
 		const tabList = tabLists[l];
@@ -28,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			selectTab(listId, selectedButton.id);
 		}
 	}
-})
+};
 
 const selectTab = (listId, tabId) => {
 	const tabList = tabs[listId];
@@ -42,4 +60,4 @@ const selectTab = (listId, tabId) => {
 		const tabPanels = tabList[tabButton.id];
 		tabPanels.forEach(panel => panel.hidden = (tabButton.id !== tabId));
 	}
-}
+};
