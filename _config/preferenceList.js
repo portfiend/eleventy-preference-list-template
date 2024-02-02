@@ -1,7 +1,7 @@
 const preferences = require("../src/_data/preferences.json");
 const opinions = require("../src/_data/opinions.json");
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
 	const slugify = eleventyConfig.getFilter("slugify");
 
 	const collapsible = (content, title, open) => {
