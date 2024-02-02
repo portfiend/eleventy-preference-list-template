@@ -1,0 +1,4 @@
+{
+	"tags": [ "profile" ],
+	"layout": "profile.njk"
+}

@@ -1,3 +1,39 @@
+$nav-bg: white;
+$nav-link-color: black;
+$nav-link-current: rgba(#000000, 0.25);
+$nav-shadow: 2px 4px 5px 1px rgba($color: #000000, $alpha: 0.5);
+
+$body-bg: #ccc;
+
+$box-bg: white;
+$box-shadow: 2px 4px 5px 1px rgba($color: #000000, $alpha: 0.5);
+
+$collapsible-bg: white;
+$collapsible-header-bg: #ccc;
+$collapsible-border: 2px outset $collapsible-header-bg;
+$collapsible-border-radius: 2px;
+
+$list-bg: #e7ffd7;
+$list-header-bg: YellowGreen;
+$list-border: 2px outset $list-header-bg;
+
+$pref-bg: #fff;
+$pref-header-bg: Turquoise;
+$pref-border: 2px outset $pref-header-bg;
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: $body-bg fixed 100vw 100vh;
+  font-size: 16px;
+  line-height: 1;
+}
+
+p {
+  margin: 0.5em 0;
+}
+
 #skip-links {
   position: absolute;
   top: -3em;
@@ -14,19 +50,12 @@
   }
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  background: #bbb;
-  font-size: 16px;
-}
-
 nav {
   position: sticky;
   top: 0;
   margin-bottom: 1em;
-  background: white;
-  border-bottom: 5px solid black;
+  background-color: $nav-bg;
+  box-shadow: $nav-shadow;
   
   ul {
     display: flex;
@@ -36,6 +65,7 @@ nav {
     margin: 0;
     margin: auto;
     max-width: 720px;
+    background: $nav-bg;
   }
   
   li {
@@ -50,11 +80,15 @@ nav {
   
   a {
     display: block;
-    padding: 1em;
+    padding: 0.5em 1em;
     transition: background-color 200ms;
+    color: $nav-link-color;
+    font-weight: bold;
+    font-size: larger;
+    text-decoration: none;
 
     &:hover, &[aria-current=page] {
-      background-color: #ddd;
+      background-color: $nav-link-current;
     }
   }
 }
@@ -62,21 +96,24 @@ nav {
 .box {
   margin: auto;
   max-width: 720px;
-  border: 5px solid black;
   box-sizing: border-box;
   padding: 1em 2em;
-  background: white;
-  border-radius: 1em;
+  background: $box-bg;
+  border: 1px solid rgba($color: #000000, $alpha: 0.25);
+  box-shadow: $box-shadow;
 }
 
 .collapsible {
   overflow: hidden;
+  margin: 0.5em 0 1em;
+  border: $collapsible-border;
+  border-radius: $collapsible-border-radius;
 
   > header {
-    background-color: #ccc;
+    background-color: $collapsible-header-bg;
 
     .collapsible-button {
-      padding: 0.5em 1em;
+      padding: 0.25em 1em;
       background: transparent;
       display: block;
       width: 100%;
@@ -84,31 +121,42 @@ nav {
       cursor: pointer;
       text-align: left;
       font-weight: bold;
+
+      &::before {
+        content: "▲ ";
+      }
     }
   }
 
   .collapsible-content {
     padding: 0.5em 1em;
-    transform: height 200ms;
   }
 
-  &[aria-expanded=false] .collapsible-content {
-    display: none;
-    height: 0;
+  &[aria-expanded=false] {
+    .collapsible-button {
+      &::before {
+        content: "▼ ";
+      }
+    }
+
+    .collapsible-content {
+      display: none;
+    }
   }
 }
 
 .collapsible-list {
-  border: 5px solid #444;
-  border-radius: 0.5em;
+  background-color: $list-bg;
+  border: $list-border;
   
   > header {
-    background-color: #aaa;
+    background-color: $list-header-bg;
 
     .collapsible-button {
-      font-size: 1.25em;
+      font-size: 1em;
   
       h3 {
+        display: inline;
         margin: 0;
       }
     }
@@ -116,10 +164,15 @@ nav {
 }
 
 .collapsible-preference {
-  border: 3px solid #777;
+  border: $pref-border;
+  margin-bottom: 0.5em;
 
-  > header .collapsible-button {
-    font-size: 1em;
+  > header {
+    background-color: $pref-header-bg;
+
+    .collapsible-button {
+      font-size: 1em;
+    }
   }
 
   > .collapsible-content {
@@ -132,35 +185,43 @@ nav {
     gap: 1px;
     background-color: rgba($color: #000000, $alpha: 0.5);
   }
-
-  p {
-    margin: 0.25em 0;
-  }
 }
 
 .pref-definition {
   grid-area: definition;
-  background-color: white;
-  padding: 0.5em;
-}
-
-.pref-opinions {
-  grid-area: opinions;
-  background-color: #eee;
+  background-color: $pref-bg;
+  padding: 0 0.5em;
 }
 
 .pref-opinion-description {
   grid-area: preference;
-  padding: 0.5em;
-  background-color: white;
+  background-color: $pref-bg;
+  padding: 0 0.5em;
 }
 
+.pref-opinions {
+  grid-area: opinions;
+  background-color: LightCyan;
+  padding: 0 0.5em;
+}
+
+
 .opinion {
-  background-color: #ffb;
+  background-color: LightCyan;
   padding: 0.5em;
   text-align: center;
 
   &:not(:last-child) {
     border-bottom: 1px solid rgba(0,0,0,0.125);
+  }
+}
+
+.opinion-symbol {
+  display: inline;
+  cursor: pointer;
+  transition: color 0.2s;
+
+  &:hover {
+    color: white !important;
   }
 }

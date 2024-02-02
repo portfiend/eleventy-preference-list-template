@@ -1,5 +1,20 @@
 {
-	"ooc-love": "I would LOVE to see this explored with this character.",
-	"ic-love": "This character canonically LOVES this.",
-	"love": "I LOVE this type of content."
+	"ooc-love": {
+		"symbol": "❤",
+		"color": "red",
+		"name": "Test 1",
+		"text": "Here is some short text about the symbol"
+	},
+	"ic-love": {
+		"symbol": "👍︎",
+		"color": "green",
+		"name": "Test 2",
+		"text": "Yay I love filler text"
+	},
+	"love": {
+		"symbol": "3",
+		"color": "blue",
+		"name": "Test 3",
+		"text": "Kung pow opnion"
+	}
 }

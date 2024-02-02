@@ -2,5 +2,9 @@
 	"example": {
 		"name": "Example A",
 		"definition": "This is a description of the preference."
+	},
+	"example-2": {
+		"name": "Example B",
+		"definition": "This is a description of the preference."
 	}
 }
