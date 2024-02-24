@@ -5,7 +5,6 @@ module.exports = function (eleventyConfig) {
 			linksList += `<li><a href="${links[key]}">${key}</a></li>`;
 		}
 		linksList += '</ul>';
-		console.log(linksList);
 
 		return `
 			<article class="profile-card">

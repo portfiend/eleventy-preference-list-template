@@ -51,7 +51,7 @@ module.exports = function (eleventyConfig) {
 		const ops = opinionList.map(opin => opinions[opin] || null);
 		const symbol = op => `
 			<div class="opinion-symbol opinion-${op.classSuffix}" tabindex="0" data-tooltip-text="${op.name}">
-				${readSVGFile("src/_includes/icons/" + op.symbol + ".svg")}
+				${readSVGFile("src/_includes/icons/" + op.symbol)}
 			</div>`;
 		const symbols = ops.map(op => symbol(op)).join(" ");
 		const opins = ops.map(op => `

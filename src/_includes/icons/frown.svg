@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" version="1.1" id="svg9" sodipodi:docname="frown.svg"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+   <defs id="defs9" />
+   <sodipodi:namedview id="namedview9" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1.0"
+      inkscape:showpageshadow="2" inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1"
+      inkscape:zoom="4.2868349" inkscape:cx="17.495425" inkscape:cy="-20.761238" inkscape:window-width="1920"
+      inkscape:window-height="1017" inkscape:window-x="2552" inkscape:window-y="352" inkscape:window-maximized="1"
+      inkscape:current-layer="svg9" />
+   <path
+      d="m 15.9989,29.9978 c 9.3344,0 13.9989,-6.2675 13.9989,-13.9989 C 29.9978,8.26751 25.3333,2 15.9989,2 6.66443,2 2,8.26751 2,15.9989 2,23.7303 6.66443,29.9978 15.9989,29.9978 Z"
+      fill="currentColor" id="black" />
+   <path
+      d="m 11.7584,24.7258 c 2.3408,-2.3493 6.1386,-2.3575 8.4871,-0.0261 0.392,0.3891 1.0251,0.3867 1.4142,-0.0052 0.3891,-0.392 0.3868,-1.0251 -0.0051,-1.4142 -3.1315,-3.1087 -8.1937,-3.0968 -11.3129,0.0339 -0.38986,0.3912 -0.3887,1.0244 0.0025,1.4142 0.3913,0.3898 1.0244,0.3886 1.4142,-0.0026 z"
+      fill="black" id="white" />
+   <path
+      d="m 11.7584,24.7258 c 2.3408,-2.3493 6.1386,-2.3575 8.4871,-0.0261 0.392,0.3891 1.0251,0.3867 1.4142,-0.0052 0.3891,-0.392 0.3868,-1.0251 -0.0051,-1.4142 -3.1315,-3.1087 -8.1937,-3.0968 -11.3129,0.0339 -0.38986,0.3912 -0.3887,1.0244 0.0025,1.4142 0.3913,0.3898 1.0244,0.3886 1.4142,-0.0026 z"
+      fill="black" id="white" />
+   <path
+      d="M 13.5,14.5 C 13.5,15.8807 12.3807,17 11,17 9.61929,17 8.5,15.8807 8.5,14.5 8.5,13.1193 9.61929,12 11,12 c 1.3807,0 2.5,1.1193 2.5,2.5 z"
+      fill="black" id="white" />
+   <path
+      d="m 23.5,14.5 c 0,1.3807 -1.1193,2.5 -2.5,2.5 -1.3807,0 -2.5,-1.1193 -2.5,-2.5 0,-1.3807 1.1193,-2.5 2.5,-2.5 1.3807,0 2.5,1.1193 2.5,2.5 z"
+      fill="black" id="white" />
+</svg>

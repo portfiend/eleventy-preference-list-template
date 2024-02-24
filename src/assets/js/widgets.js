@@ -68,11 +68,9 @@ const initCollapsibleLists = () => {
 			else {
 				// Close sub-lists
 				const subLists = list.querySelectorAll(".collapsible");
-				console.log(subLists);
 				for (let s = 0; s < subLists.length; s++) {
 					const subList = subLists[s];
 					if (subList.ariaExpanded === "true") {
-						console.log("Test");
 						subList.ariaExpanded = false;
 					}
 				}
