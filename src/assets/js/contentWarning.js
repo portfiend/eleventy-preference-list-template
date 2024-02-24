@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		const blurDiv = blurredContent[b];
 		blurDiv.addEventListener("click", () => blurDiv.toggleAttribute("data-blurred"));
 	}
-})
+});
 
 const initializeContentWarning = (_warnings) => {
 	const dialog = document.querySelector("dialog#content-warning");
@@ -17,7 +17,7 @@ const initializeContentWarning = (_warnings) => {
 
 		const event = new Event("updateContentSettings");
 		document.body.dispatchEvent(event);
-	})
+	});
 
 	initWarningCheckboxes(_warnings, dialog);
 
@@ -26,9 +26,9 @@ const initializeContentWarning = (_warnings) => {
 		openDialogueLink.addEventListener("click", e => {
 			e.preventDefault();
 			dialog.showModal();
-		})
+		});
 	}
-}
+};
 
 const setOptIn = (optInId, value) => {
 	contentOptions[optInId] = value;
@@ -40,7 +40,7 @@ const setOptIn = (optInId, value) => {
 	else {
 		document.body.classList.remove(optInId);
 	}
-}
+};
 
 const initWarningCheckboxes = (_warnings, dialog) => {
 	const warnings = JSON.parse(_warnings);
@@ -65,7 +65,7 @@ const initWarningCheckboxes = (_warnings, dialog) => {
 
 			const event = new Event("change");
 			checkbox.dispatchEvent(event);
-		})
+		});
 
 		checkbox.addEventListener("change", e => {
 			setOptIn(optInId, e.target.checked);
@@ -103,4 +103,4 @@ const initWarningCheckboxes = (_warnings, dialog) => {
 
 		checkbox.dispatchEvent(initEvent);
 	}
-}
+};

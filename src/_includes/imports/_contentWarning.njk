@@ -2,8 +2,8 @@
 	<dialog id="content-warning" autofocus>
 		{% if contentWarning.showAdultContentWarning %}
 			<p>
-				This website {{contentWarning.mustBeAdult and "has been" or "may contain content" }} marked for 
-				<b>18+ audiences</b> only. By clicking the checkbox below, you agree that you are above this age.
+				Some parts of this website {{contentWarning.mustBeAdult and "has been" or "may contain content" }} 
+				filtered to <b>18+ audiences</b>. By clicking the checkbox below, you agree that you are an adult.
 			</p>
 			<input id="cbx-adult" 
 				value="adult" 
@@ -11,7 +11,6 @@
 				autocomplete="off"/>
 			<label for="cbx-adult">I agree that I am over the age of 18!</label>
 		{% endif %}
-
 		{% if contentWarning.showSiteContentWarning %}
 			<p>
 				This site may contain the following content warnings. Sensitive content will be 
@@ -36,13 +35,15 @@
 			</ul>
 		{% endif %}
 
-		<form method="dialog">
-			<button 
+		<p>
+			<form method="dialog">
+				<button 
 				id="confirm-dialog"
 				{{ 'data-require=adult' if contentWarning.mustBeAdult }} >
 				Confirm my content preferences
 			</button>
-		</form>
+			</form>
+		</p>
 
 		<p>(These settings may be changed at any time via <b>Content Options</b> in the navigation bar.)</p>
 	</dialog>
@@ -52,29 +53,31 @@
 		{{ warnings.unshift("adult") and "" }}
 	{% endif %}
 	<script>
-		{ 
+		{
 			const dialog = document.querySelector("dialog#content-warning");
 			const alreadyDone = localStorage.getItem("cw-confirm");
 			initializeContentWarning('{{warnings | dump | safe }}');
-			if (alreadyDone !== "true") {
-				dialog.showModal();
+			if (!/headless/i.test(window.navigator.userAgent)) {
+				if (alreadyDone !== "true") {
+					dialog.showModal();
+				}
 			}
 		}
 	</script>
 
 	<style>
 		{% for warning in warnings %}
-			body:not(.optIn-{{warning}}) .cw-{{warning}} {
+			body:not(.optIn-{{warning}}) .cw-{{warning}}{
 				display: none;
-			} 
+			}
 
 			.blur-content {
-    		cursor: pointer;
-			} 
+				cursor: pointer;
+			}
 
 			.blur-content[data-blurred] .blur-inner {
-    		filter: blur(5px);
-			} 
+				filter: blur(5px);
+			}
 		{% endfor %}
 	</style>
 {% endif %}
@@ -88,13 +91,16 @@
 					window.location.href = "../"
 				}
 			}
-			
-			document.body.addEventListener("updateContentSettings", forceRedirect);
-			
-			{ 
+
+			document
+				.body
+				.addEventListener("updateContentSettings", forceRedirect);
+
+			{
 				const alreadyDone = localStorage.getItem("cw-confirm");
-				if (alreadyDone) forceRedirect();
-			}
+				if (alreadyDone) 
+					forceRedirect();
+				}
 		</script>
 	{% elif contentWarningForceEjects is iterable %}
 		<script>
@@ -109,11 +115,14 @@
 				}
 			}
 
-			document.body.addEventListener("updateContentSettings", forceRedirect);
-			{ 
+			document
+				.body
+				.addEventListener("updateContentSettings", forceRedirect);
+			{
 				const alreadyDone = localStorage.getItem("cw-confirm");
-				if (alreadyDone) forceRedirect();
-			}
+				if (alreadyDone) 
+					forceRedirect();
+				}
 		</script>
 	{% endif %}
 {% endif %}
