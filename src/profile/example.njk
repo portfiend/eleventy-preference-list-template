@@ -1,42 +1,47 @@
 ---
 pageTitle: Example
+
 iconPath: bust.svg
+profileLinks:
+  Related profile: /profile/example
+  Random website: https://www.example.com
+
 ---
 
-{% profileCard iconPath %}
-	{% renderMarkdown %}
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla facere et perspiciatis qui necessitatibus! Minima facere impedit provident laudantium consequatur molestias nisi, labore veritatis laborum totam fuga qui, vel commodi?
+{% profileCard iconPath, profileLinks %}
+  {% renderMarkdown %}
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla facere et perspiciatis qui necessitatibus! Minima facere impedit provident laudantium consequatur molestias nisi, labore veritatis laborum totam fuga qui, vel commodi?
 
-		Dolorem impedit quis incidunt blanditiis provident corrupti eos tempora aliquid vel quibusdam dignissimos ipsam numquam sequi, placeat quam laborum ex veniam, sapiente eum possimus iure! Nostrum similique officia ullam ducimus.
+    Dolorem impedit quis incidunt blanditiis provident corrupti eos tempora aliquid vel quibusdam dignissimos ipsam numquam sequi, placeat quam laborum ex veniam, sapiente eum possimus iure! Nostrum similique officia ullam ducimus.
 
-		Possimus sint consectetur cupiditate, repudiandae maxime libero cum explicabo et a mollitia magnam natus consequuntur velit atque adipisci, praesentium esse numquam. Sit veniam necessitatibus aliquid distinctio doloremque deserunt nesciunt? Minus.
-	{% endrenderMarkdown %}
+    Possimus sint consectetur cupiditate, repudiandae maxime libero cum explicabo et a mollitia magnam natus consequuntur velit atque adipisci, praesentium esse numquam. Sit veniam necessitatibus aliquid distinctio doloremque deserunt nesciunt? Minus.
+  {% endrenderMarkdown %}
 {% endprofileCard %}
 
 {% renderMarkdown %}
-	Here is an example of a profile!
+  Here is an example of a profile!
 {% endrenderMarkdown %}
 
 <h2>
-	Preferences
+  Preferences
 </h2>
 
 {% preferenceList "Example List",
 true %}
 {% preference "general:example", ["love", "like"] %}
-		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus perspiciatis soluta excepturi? Commodi ea, porro eaque atque vero similique fugit, culpa veniam suscipit, necessitatibus debitis corporis vitae voluptate fugiat delectus?
-	{% endpreference %}
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus perspiciatis soluta excepturi? Commodi ea, porro eaque atque vero similique fugit, culpa veniam suscipit, necessitatibus debitis corporis vitae voluptate fugiat delectus?
+  {% endpreference %}
 {% preference "example_prefs:example_2", ["like", "dislike"] %}
-		Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum blanditiis esse facilis fugit odit maiores, obcaecati tenetur enim, dicta ipsam reiciendis fugiat culpa id, eaque labore saepe quaerat minus quo.
-	{% endpreference %}
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum blanditiis esse facilis fugit odit maiores, obcaecati tenetur enim, dicta ipsam reiciendis fugiat culpa id, eaque labore saepe quaerat minus quo.
+  {% endpreference %}
 {% endpreferenceList %}
 
 {% preferenceList "Example List 2",
 true %}
 {% preference "general:example", ["love", "like"] %}
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur consequatur quos sunt animi inventore nemo ipsum, voluptatibus voluptate maiores eligendi commodi quae eaque repudiandae quam doloremque in hic! Inventore, consequuntur.
-	{% endpreference %}
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur consequatur quos sunt animi inventore nemo ipsum, voluptatibus voluptate maiores eligendi commodi quae eaque repudiandae quam doloremque in hic! Inventore, consequuntur.
+  {% endpreference %}
 {% preference "example_prefs:example_2", ["like", "dislike"] %}
-		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis aspernatur adipisci quod facilis asperiores? Aliquam et aliquid nesciunt modi fugit, aut, temporibus, placeat quis quaerat nisi corporis totam ducimus ab!
-	{% endpreference %}
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis aspernatur adipisci quod facilis asperiores? Aliquam et aliquid nesciunt modi fugit, aut, temporibus, placeat quis quaerat nisi corporis totam ducimus ab!
+  {% endpreference %}
 {% endpreferenceList %}
