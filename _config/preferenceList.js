@@ -1,9 +1,12 @@
 const fs = require("fs");
-const preferences = require("../src/_data/preferences.json");
+const path = require("path");
 const opinions = require("../src/_data/opinions.json");
+const preferences = {};
 
 module.exports = function (eleventyConfig) {
 	const slugify = eleventyConfig.getFilter("slugify");
+
+	initializePreferences();
 
 	const collapsible = (content, title, open) => {
 		return `
@@ -42,7 +45,7 @@ module.exports = function (eleventyConfig) {
 	};
 
 	const preference = (content, prefId, opinionList) => {
-		const pref = preferences[prefId];
+		const pref = getPreference(prefId);
 		if (!pref) return "ERROR!";
 
 		const ops = opinionList.map(opin => opinions[opin] || null);
@@ -78,4 +81,27 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPairedShortcode("preferenceList", preferenceList);
 	eleventyConfig.addPairedShortcode("preference", preference);
 	eleventyConfig.addPairedShortcode("collapsible", collapsible);
+};
+
+const initializePreferences = () => {
+	const directory = "./src/_data/preferences/";
+	const files = fs.readdirSync(directory);
+	files.forEach(file => {
+		if (file.endsWith('.json')) {
+			const filePath = path.join(directory, file);
+			const data = fs.readFileSync(filePath, 'utf8');
+			const json = JSON.parse(data);
+			const filename = path.basename(file, '.json');
+			preferences[filename] = json;
+		}
+	});
+};
+
+const getPreference = (preferenceString) => {
+	const [filename, key] = preferenceString.split(':');
+	if (preferences[filename] && preferences[filename][key]) {
+		return preferences[filename][key];
+	} else {
+		return null;
+	}
 };

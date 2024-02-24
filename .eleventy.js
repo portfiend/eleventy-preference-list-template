@@ -16,6 +16,9 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(eleventySass, { sass, outputPath: null });
 
 	eleventyConfig.addPassthroughCopy("./src/assets/");
+	eleventyConfig.addPassthroughCopy({
+		"./src/_data/preferences/": "assets/data/preferences/"
+	});
 	eleventyConfig.addWatchTarget("./src/assets/");
 
 	loadConfigModules(eleventyConfig);
