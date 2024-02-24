@@ -306,15 +306,26 @@ nav {
   vertical-align: middle;
   color: #555;
 
-  &:hover path {
-
-    &#white {
-      fill: black;
+  &:hover {
+    img {
+      filter: brightness(2);
     }
 
-    &#black {
-      color: white;
+    path {
+      &#white {
+        fill: black;
+      }
+  
+      &#black {
+        color: white;
+      }
     }
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+    transition: filter 0.2s;
   }
 
   svg {
@@ -324,10 +335,6 @@ nav {
     #black {
       stroke: black;
       stroke-width: 2px;
-    }
-
-    path {
-      transition: filter 0.2s;
     }
   }
 }

@@ -49,10 +49,19 @@ module.exports = function (eleventyConfig) {
 		if (!pref) return "ERROR!";
 
 		const ops = opinionList.map(opin => opinions[opin] || null);
-		const symbol = op => `
-			<div class="opinion-symbol opinion-${op.classSuffix}" tabindex="0" data-tooltip-text="${op.name}">
-				${readSVGFile("src/_includes/icons/" + op.symbol)}
+		const symbol = op => {
+			let image;
+			if (op.symbol.endsWith(".svg")) {
+				image = readSVGFile("src/_includes/icons/" + op.symbol);
+			}
+			else {
+				image = `<img src="/assets/img/${op.symbol}" />`;
+			}
+
+			return `<div class="opinion-symbol opinion-${op.classSuffix}" tabindex="0" data-tooltip-text="${op.name}">
+				${image}
 			</div>`;
+		};
 		const symbols = ops.map(op => symbol(op)).join(" ");
 		const opins = ops.map(op => `
 			<div class="opinion">
