@@ -1,20 +1,20 @@
 {
-	"ooc-love": {
+	"love": {
 		"symbol": "heart",
-		"color": "LimeGreen",
 		"name": "Test 1",
+		"classSuffix": "love",
 		"text": "Here is some short text about the symbol"
 	},
-	"ic-love": {
+	"like": {
 		"symbol": "thumbs_up",
-		"color": "MediumTurquoise",
 		"name": "Test 2",
+		"classSuffix": "like",
 		"text": "Yay I love filler text"
 	},
-	"love": {
+	"dislike": {
 		"symbol": "thumbs_down",
-		"color": "MediumVioletRed",
 		"name": "Test 3",
+		"classSuffix": "dislike",
 		"text": "Kung pow opnion"
 	}
 }

@@ -285,6 +285,18 @@ nav {
   }
 }
 
+.opinion-love {
+  color: limegreen;
+}
+
+.opinion-like {
+  color: mediumturquoise;
+}
+
+.opinion-dislike {
+  color: mediumvioletred;
+}
+
 .profile-card {
   background-color: $profile-card-bg;
   color: $profile-card-text;
@@ -310,4 +322,16 @@ nav {
     padding: 0.5em;
     flex-grow: 1;
   }
+}
+
+#tooltip {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: none;
+  top: 0;
+  left: 0;
+  pointer-events: none;
 }

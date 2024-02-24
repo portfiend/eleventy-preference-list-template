@@ -43,6 +43,10 @@ date: Last Modified
 			{{content | safe}}
 		</main>
 
+		{% if options.enableWidgets %}
+			<div id="tooltip" role="tooltip" aria-hidden="true"></div>
+		{% endif %}
+
 		{% if options.enableContentWarnings %}
 			{% include "imports/_contentWarning.njk" %}
 		{% endif %}

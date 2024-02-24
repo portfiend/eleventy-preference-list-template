@@ -3,7 +3,39 @@ const tabs = {};
 document.addEventListener("DOMContentLoaded", () => {
 	initTabLists();
 	initCollapsibleLists();
+	initTooltip();
 });
+
+const initTooltip = () => {
+	const opinionSymbols = document.querySelectorAll('.opinion-symbol');
+	const tooltip = document.getElementById('tooltip');
+
+	for (const opinionSymbol of opinionSymbols) {
+		const showTooltip = function() {
+			const tooltipText = opinionSymbol.dataset.tooltipText;
+			tooltip.textContent = tooltipText;
+			
+			const rect = this.getBoundingClientRect();
+			const topPosition = rect.top + window.scrollY - tooltip.offsetHeight - 36;
+			const leftPosition = rect.left - (rect.width / 2 + 6);
+			
+			tooltip.style.top = topPosition + 'px';
+			tooltip.style.left = leftPosition + 'px';
+			tooltip.style.display = 'block';
+			tooltip.setAttribute('aria-hidden', 'false');
+		};
+	
+		const hideTooltip = function() {
+			tooltip.style.display = 'none';
+			tooltip.setAttribute('aria-hidden', 'true');
+		};
+
+		opinionSymbol.addEventListener('mouseover', showTooltip);
+		opinionSymbol.addEventListener('focus', showTooltip);
+		opinionSymbol.addEventListener('mouseout', hideTooltip);
+		opinionSymbol.addEventListener('blur', hideTooltip);
+	}
+};
 
 const initCollapsibleLists = () => {
 	const collapsibleLists = document.querySelectorAll(".collapsible");

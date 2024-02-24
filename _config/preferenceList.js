@@ -50,10 +50,8 @@ module.exports = function (eleventyConfig) {
 
 		const ops = opinionList.map(opin => opinions[opin] || null);
 		const symbol = op => `
-			<div class="opinion-symbol" 
-				title="${op.name}" 
-				style="color: ${op.color}">
-					${readSVGFile("src/_includes/icons/" + op.symbol + ".svg")}
+			<div class="opinion-symbol opinion-${op.classSuffix}" tabindex="0" data-tooltip-text="${op.name}">
+				${readSVGFile("src/_includes/icons/" + op.symbol + ".svg")}
 			</div>`;
 		const symbols = ops.map(op => symbol(op)).join(" ");
 		const opins = ops.map(op => `
@@ -65,7 +63,7 @@ module.exports = function (eleventyConfig) {
 		<section id="pref-${slugify(pref.name)}" class="collapsible collapsible-preference" data-collapsible-type="preference" aria-expanded="false">
 			<header>
 				<button class="collapsible-button">
-					<div class="c-button-name">${pref.name}</div>
+					<div class="c-button-name" tabindex="0">${pref.name}</div>
 					<div class="c-button-icons">${symbols && `${symbols}` || ""}</div>
 				</button>
 			</header>
