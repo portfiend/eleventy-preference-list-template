@@ -11,10 +11,10 @@
     "11ty",
     "eleventy-template"
   ],
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/portfiend/eleventy-oc-directory-template.git"
-	},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/portfiend/eleventy-oc-directory-template.git"
+  },
   "author": "portfiend",
   "license": "MIT",
   "devDependencies": {

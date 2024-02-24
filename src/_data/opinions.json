@@ -1,19 +1,19 @@
 {
 	"ooc-love": {
-		"symbol": "❤",
-		"color": "red",
+		"symbol": "heart",
+		"color": "LimeGreen",
 		"name": "Test 1",
 		"text": "Here is some short text about the symbol"
 	},
 	"ic-love": {
-		"symbol": "👍︎",
-		"color": "green",
+		"symbol": "thumbs_up",
+		"color": "MediumTurquoise",
 		"name": "Test 2",
 		"text": "Yay I love filler text"
 	},
 	"love": {
-		"symbol": "3",
-		"color": "blue",
+		"symbol": "thumbs_down",
+		"color": "MediumVioletRed",
 		"name": "Test 3",
 		"text": "Kung pow opnion"
 	}

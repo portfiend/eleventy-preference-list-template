@@ -1,3 +1,4 @@
+const fs = require("fs");
 const preferences = require("../src/_data/preferences.json");
 const opinions = require("../src/_data/opinions.json");
 
@@ -30,19 +31,40 @@ module.exports = function (eleventyConfig) {
 		`;
 	};
 
+	const readSVGFile = filePath => {
+		try {
+			const svgContent = fs.readFileSync(filePath, 'utf8');
+			return svgContent;
+		} catch (err) {
+			console.error("Error reading SVG file:", err);
+			return null;
+		}
+	};
+
 	const preference = (content, prefId, opinionList) => {
 		const pref = preferences[prefId];
 		if (!pref) return "ERROR!";
 
 		const ops = opinionList.map(opin => opinions[opin] || null);
-		const symbol = op => `<div class="opinion-symbol" title="${op.name}" style="color:${op.color}">${op.symbol}</div>`;
-		const symbols = ops.map(op => symbol(op)).join(", ");
-		const opins = ops.map(op => `<div class="opinion"><b>[${symbol(op)}] ${op.name}:</b> ${op.text}</div>`).join("");
+		const symbol = op => `
+			<div class="opinion-symbol" 
+				title="${op.name}" 
+				style="color: ${op.color}">
+					${readSVGFile("src/_includes/icons/" + op.symbol + ".svg")}
+			</div>`;
+		const symbols = ops.map(op => symbol(op)).join(" ");
+		const opins = ops.map(op => `
+			<div class="opinion">
+				<b>${symbol(op)} ${op.name}:</b> ${op.text}
+			</div>`).join("");
 
 		return `
 		<section id="pref-${slugify(pref.name)}" class="collapsible collapsible-preference" aria-expanded="false">
 			<header>
-				<button class="collapsible-button">${pref.name} ${symbols && `(${symbols})` || ""}</button>
+				<button class="collapsible-button">
+					<div class="c-button-name">${pref.name}</div>
+					<div class="c-button-icons">${symbols && `${symbols}` || ""}</div>
+				</button>
 			</header>
 			<main class="collapsible-content">
 				<section class="pref-opinions">${opins}</section>
