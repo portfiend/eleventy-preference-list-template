@@ -1,0 +1,94 @@
+$nav-bg: #333;
+$nav-link-color: #eee;
+$nav-link-current: rgba(#fff, 0.15);
+$nav-shadow: 2px 4px 5px 1px rgba($color: #000000, $alpha: 0.5);
+
+$body-bg: #111;
+$body-text: #eee;
+
+$box-bg: #444;
+$box-shadow: 2px 4px 5px 1px rgba($color: #000000, $alpha: 0.5);
+
+$profile-card-bg: #333;
+$profile-card-text: #ddd;
+$profile-card-icon-bg: #444;
+$profile-card-icon-width: 160px;
+$profile-card-icon-shadow: 1px 2px 3px 1px rgba($color: #000000, $alpha: 0.5);
+$profile-card-border: 2px outset $profile-card-bg;
+$profile-card-border-radius: 2px;
+$profile-card-shadow: 2px 4px 2px 0px rgba($color: #000000, $alpha: 0.25);
+
+$collapsible-bg: #333;
+$collapsible-text: #eee;
+$collapsible-header-bg: #222;
+$collapsible-header-text: $collapsible-text;
+$collapsible-border: 2px outset $collapsible-header-bg;
+$collapsible-border-radius: 2px;
+
+$list-bg: #333;
+$list-text: $collapsible-text;
+$list-header-bg: #222;
+$list-header-text: $collapsible-text;
+$list-border: 2px outset $list-header-bg;
+$list-shadow: 2px 4px 3px 1px rgba($color: #000000, $alpha: 0.25);
+
+$pref-bg: #444;
+$pref-text: $collapsible-text;
+$pref-header-bg: #1a1a1a;
+$pref-header-text: #eee;
+$pref-border: 2px outset $pref-header-bg;
+
+$opinion-bg: #555;
+
+// Variable overrides
+:root {
+  --nav-bg: #{$nav-bg};
+  --nav-link-color: #{$nav-link-color};
+  --nav-link-current: #{$nav-link-current};
+  --nav-shadow: #{$nav-shadow};
+  
+  --body-bg: #{$body-bg};
+  --body-text: #{$body-text};
+  
+  --box-bg: #{$box-bg};
+  --box-shadow: #{$box-shadow};
+  
+  --profile-card-bg: #{$profile-card-bg};
+  --profile-card-text: #{$profile-card-text};
+  --profile-card-icon-bg: #{$profile-card-icon-bg};
+  --profile-card-icon-width: #{$profile-card-icon-width};
+  --profile-card-icon-shadow: #{$profile-card-icon-shadow};
+  --profile-card-border: #{$profile-card-border};
+  --profile-card-border-radius: #{$profile-card-border-radius};
+  --profile-card-shadow: #{$profile-card-shadow};
+  
+  --collapsible-bg: #{$collapsible-bg};
+  --collapsible-text: #{$collapsible-text};
+  --collapsible-header-bg: #{$collapsible-header-bg};
+  --collapsible-header-text: #{$collapsible-header-text};
+  --collapsible-border: #{$collapsible-border};
+  --collapsible-border-radius: #{$collapsible-border-radius};
+  
+  --list-bg: #{$list-bg};
+  --list-text: #{$list-text};
+  --list-header-bg: #{$list-header-bg};
+  --list-header-text: #{$list-header-text};
+  --list-border: #{$list-border};
+  --list-shadow: #{$list-shadow};
+  
+  --pref-bg: #{$pref-bg};
+  --pref-text: #{$pref-text};
+  --pref-header-bg: #{$pref-header-bg};
+  --pref-header-text: #{$pref-header-text};
+  --pref-border: #{$pref-border};
+  
+  --opinion-bg: #{$opinion-bg};
+}
+
+a {
+	color: cornflowerblue;
+}
+
+a:visited {
+	color: violet;
+}

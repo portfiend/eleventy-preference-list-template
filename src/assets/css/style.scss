@@ -40,10 +40,56 @@ $pref-border: 2px outset $pref-header-bg;
 
 $opinion-bg: #eee;
 
+// Variable overrides
+:root {
+  --nav-bg: #{$nav-bg};
+  --nav-link-color: #{$nav-link-color};
+  --nav-link-current: #{$nav-link-current};
+  --nav-shadow: #{$nav-shadow};
+  
+  --body-bg: #{$body-bg};
+  --body-text: #{$body-text};
+  
+  --box-bg: #{$box-bg};
+  --box-shadow: #{$box-shadow};
+  
+  --profile-card-bg: #{$profile-card-bg};
+  --profile-card-text: #{$profile-card-text};
+  --profile-card-icon-bg: #{$profile-card-icon-bg};
+  --profile-card-icon-width: #{$profile-card-icon-width};
+  --profile-card-icon-shadow: #{$profile-card-icon-shadow};
+  --profile-card-border: #{$profile-card-border};
+  --profile-card-border-radius: #{$profile-card-border-radius};
+  --profile-card-shadow: #{$profile-card-shadow};
+  
+  --collapsible-bg: #{$collapsible-bg};
+  --collapsible-text: #{$collapsible-text};
+  --collapsible-header-bg: #{$collapsible-header-bg};
+  --collapsible-header-text: #{$collapsible-header-text};
+  --collapsible-border: #{$collapsible-border};
+  --collapsible-border-radius: #{$collapsible-border-radius};
+  
+  --list-bg: #{$list-bg};
+  --list-text: #{$list-text};
+  --list-header-bg: #{$list-header-bg};
+  --list-header-text: #{$list-header-text};
+  --list-border: #{$list-border};
+  --list-shadow: #{$list-shadow};
+  
+  --pref-bg: #{$pref-bg};
+  --pref-text: #{$pref-text};
+  --pref-header-bg: #{$pref-header-bg};
+  --pref-header-text: #{$pref-header-text};
+  --pref-border: #{$pref-border};
+  
+  --opinion-bg: #{$opinion-bg};
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
-  background: $body-bg fixed 100vw 100vh;
+  background: var(--body-bg) fixed 100vw 100vh;
+  color: var(--body-text);
   font-size: 16px;
   line-height: 20/16;
 }
@@ -72,8 +118,8 @@ nav {
   position: sticky;
   top: 0;
   margin-bottom: 1em;
-  background-color: $nav-bg;
-  box-shadow: $nav-shadow;
+  background-color: var(--nav-bg);
+  box-shadow: var(--nav-shadow);
   
   ul {
     display: flex;
@@ -83,7 +129,7 @@ nav {
     margin: 0;
     margin: auto;
     max-width: 720px;
-    background: $nav-bg;
+    background: var(--nav-bg);
   }
   
   li {
@@ -100,13 +146,13 @@ nav {
     display: block;
     padding: 0.5em 1em;
     transition: background-color 200ms;
-    color: $nav-link-color;
+    color: var(--nav-link-color);
     font-weight: bold;
     font-size: larger;
     text-decoration: none;
 
     &:hover, &[aria-current=page] {
-      background-color: $nav-link-current;
+      background-color: var(--nav-link-current);
     }
   }
 }
@@ -116,24 +162,24 @@ nav {
   max-width: 720px;
   box-sizing: border-box;
   padding: 1em 2em;
-  background: $box-bg;
+  background: var(--box-bg);
   border: 1px solid rgba($color: #000000, $alpha: 0.25);
-  box-shadow: $box-shadow;
+  box-shadow: var(--box-shadow);
 }
 
 .collapsible {
   overflow: hidden;
   margin: 0.5em 0 1em;
-  border: $collapsible-border;
-  border-radius: $collapsible-border-radius;
-  color: $collapsible-text;
+  border: var(--collapsible-border);
+  border-radius: var(--collapsible-border-radius);
+  color: var(--collapsible-text);
 
   > header {
-    background-color: $collapsible-header-bg;
+    background-color: var(--collapsible-header-bg);
 
     .collapsible-button {
       font-size: 1em;
-      color: $collapsible-header-text;
+      color: var(--collapsible-header-text);
       padding: 0.25em 1em;
       background: transparent;
       display: block;
@@ -167,16 +213,16 @@ nav {
 }
 
 .collapsible-list {
-  background-color: $list-bg;
-  border: $list-border;
-  color: $list-text;
-  box-shadow: $list-shadow;
+  background-color: var(--list-bg);
+  border: var(--list-border);
+  color: var(--list-text);
+  box-shadow: var(--list-shadow);
   
   > header {
-    background-color: $list-header-bg;
+    background-color: var(--list-header-bg);
 
     .collapsible-button {
-      color: $list-header-text;
+      color: var(--list-header-text);
   
       h3 {
         display: inline;
@@ -187,19 +233,19 @@ nav {
 }
 
 .collapsible-preference {
-  border: $pref-border;
+  border: var(--pref-border);
   margin-bottom: 0.5em;
-  color: $pref-text;
+  color: var(--pref-text);
 
   > header {
-    background-color: $pref-header-bg;
+    background-color: var(--pref-header-bg);
 
     .collapsible-button {
       display: grid;
       grid-template-columns: auto 1fr auto;
       gap: 0.5em;
       justify-content: space-between;
-      color: $pref-header-text;
+      color: var(--pref-header-text);
       
       &:before {
         vertical-align: middle;
@@ -227,25 +273,25 @@ nav {
 
 .pref-definition {
   grid-area: definition;
-  background-color: $pref-bg;
+  background-color: var(--pref-bg);
   padding: 0 0.5em;
 }
 
 .pref-opinion-description {
   grid-area: preference;
-  background-color: $pref-bg;
+  background-color: var(--pref-bg);
   padding: 0 0.5em;
 }
 
 .pref-opinions {
   grid-area: opinions;
-  background-color: $opinion-bg;
+  background-color: var(--opinion-bg);
   padding: 0 0.5em;
 }
 
 
 .opinion {
-  background-color: $opinion-bg;
+  background-color: var(--opinion-bg);
   padding: 0.5em;
   text-align: center;
 
@@ -298,11 +344,11 @@ nav {
 }
 
 .profile-card {
-  background-color: $profile-card-bg;
-  color: $profile-card-text;
-  border: $profile-card-border;
-  border-radius: $profile-card-border-radius;
-  box-shadow: $profile-card-shadow;
+  background-color: var(--profile-card-bg);
+  color: var(--profile-card-text);
+  border: var(--profile-card-border);
+  border-radius: var(--profile-card-border-radius);
+  box-shadow: var(--profile-card-shadow);
   display: flex;
   flex-direction: row;
 
@@ -312,10 +358,10 @@ nav {
   }
 
   .pcard-icon {
-    background: $profile-card-icon-bg;
-    width: $profile-card-icon-width;
-    max-height: $profile-card-icon-width;
-    box-shadow: $profile-card-icon-shadow;
+    background: var(--profile-card-icon-bg);
+    width: var(--profile-card-icon-width);
+    max-height: var(--profile-card-icon-width);
+    box-shadow: var(--profile-card-icon-shadow);
   }
 
   .pcard-links {
