@@ -9,6 +9,15 @@ $body-text: #222;
 $box-bg: white;
 $box-shadow: 2px 4px 5px 1px rgba($color: #000000, $alpha: 0.5);
 
+$profile-card-bg: #ccc;
+$profile-card-text: #222;
+$profile-card-icon-bg: #eee;
+$profile-card-icon-width: 160px;
+$profile-card-icon-shadow: 1px 2px 3px 1px rgba($color: #000000, $alpha: 0.5);
+$profile-card-border: 2px outset $profile-card-bg;
+$profile-card-border-radius: 2px;
+$profile-card-shadow: 2px 4px 2px 0px rgba($color: #000000, $alpha: 0.25);
+
 $collapsible-bg: white;
 $collapsible-text: #222;
 $collapsible-header-bg: #ccc;
@@ -273,5 +282,32 @@ nav {
     path {
       transition: filter 0.2s;
     }
+  }
+}
+
+.profile-card {
+  background-color: $profile-card-bg;
+  color: $profile-card-text;
+  border: $profile-card-border;
+  border-radius: $profile-card-border-radius;
+  box-shadow: $profile-card-shadow;
+  display: flex;
+  flex-direction: row;
+
+  .pcard-left {
+    padding: 0.5em;
+    border-right: 1px solid rgba($color: #000000, $alpha: 0.5);
+  }
+
+  .pcard-icon {
+    background: $profile-card-icon-bg;
+    width: $profile-card-icon-width;
+    max-height: $profile-card-icon-width;
+    box-shadow: $profile-card-icon-shadow;
+  }
+
+  .pcard-right {
+    padding: 0.5em;
+    flex-grow: 1;
   }
 }

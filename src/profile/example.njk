@@ -1,6 +1,17 @@
 ---
 pageTitle: Example
+iconPath: bust.svg
 ---
+
+{% profileCard iconPath %}
+	{% renderMarkdown %}
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla facere et perspiciatis qui necessitatibus! Minima facere impedit provident laudantium consequatur molestias nisi, labore veritatis laborum totam fuga qui, vel commodi?
+
+		Dolorem impedit quis incidunt blanditiis provident corrupti eos tempora aliquid vel quibusdam dignissimos ipsam numquam sequi, placeat quam laborum ex veniam, sapiente eum possimus iure! Nostrum similique officia ullam ducimus.
+
+		Possimus sint consectetur cupiditate, repudiandae maxime libero cum explicabo et a mollitia magnam natus consequuntur velit atque adipisci, praesentium esse numquam. Sit veniam necessitatibus aliquid distinctio doloremque deserunt nesciunt? Minus.
+	{% endrenderMarkdown %}
+{% endprofileCard %}
 
 {% renderMarkdown %}
 	Here is an example of a profile!
@@ -10,15 +21,16 @@ pageTitle: Example
 	Preferences
 </h2>
 
-{% preferenceList "Example List", true %}
-	{% preference "general:example", ["ooc-love", "ic-love"] %}
+{% preferenceList "Example List",
+true %}
+{% preference "general:example", ["ooc-love", "ic-love"] %}
 		Yeahuajahjasdasdka
 
 		Lorem ipsum dolor sit amet consectetur adipisicing elit. 
 
 		Hic, velit exercitationem adipisci minus atque aspernatur dolores obcaecati saepe vel repellat et sapiente nisi eum a harum, fugit, natus nihil asperiores?
 	{% endpreference %}
-	{% preference "example_prefs:example_2", ["ic-love", "love"] %}
+{% preference "example_prefs:example_2", ["ic-love", "love"] %}
 		Yeahuajahjasdasdka
 
 		Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -27,15 +39,16 @@ pageTitle: Example
 	{% endpreference %}
 {% endpreferenceList %}
 
-{% preferenceList "Example List 2", true %}
-	{% preference "general:example", ["ooc-love", "ic-love"] %}
+{% preferenceList "Example List 2",
+true %}
+{% preference "general:example", ["ooc-love", "ic-love"] %}
 		Yeahuajahjasdasdka
 
 		Lorem ipsum dolor sit amet consectetur adipisicing elit. 
 
 		Hic, velit exercitationem adipisci minus atque aspernatur dolores obcaecati saepe vel repellat et sapiente nisi eum a harum, fugit, natus nihil asperiores?
 	{% endpreference %}
-	{% preference "example_prefs:example_2", ["ic-love", "love"] %}
+{% preference "example_prefs:example_2", ["ic-love", "love"] %}
 		Yeahuajahjasdasdka
 
 		Lorem ipsum dolor sit amet consectetur adipisicing elit. 
