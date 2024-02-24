@@ -62,7 +62,7 @@ module.exports = function (eleventyConfig) {
 			</div>`).join("");
 
 		return `
-		<section id="pref-${slugify(pref.name)}" class="collapsible collapsible-preference" aria-expanded="false">
+		<section id="pref-${slugify(pref.name)}" class="collapsible collapsible-preference" data-collapsible-type="preference" aria-expanded="false">
 			<header>
 				<button class="collapsible-button">
 					<div class="c-button-name">${pref.name}</div>

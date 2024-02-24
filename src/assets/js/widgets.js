@@ -12,8 +12,39 @@ const initCollapsibleLists = () => {
 		const button = list.querySelector(":scope > header .collapsible-button");
 
 		button.addEventListener("click", () => {
-			const expanded = list.ariaExpanded === "true";
-			list.ariaExpanded = !expanded;
+			const expanded = list.ariaExpanded !== "true";
+			list.ariaExpanded = expanded;
+
+			if (expanded) {
+				// Close other lists in same sibling level
+				const collapsibleType = list.dataset.collapsibleType;
+				if (!collapsibleType) {
+					return;
+				}
+
+				const siblings = Array.from(list.parentElement.children).filter((sibling) => {
+					return sibling !== list && sibling.getAttribute('data-collapsible-type') === collapsibleType;
+				});
+
+				for (let s = 0; s < siblings.length; s++) {
+					const siblingList = siblings[s];
+					if (siblingList.ariaExpanded === "true") {
+						siblingList.ariaExpanded = false;
+					}
+				}
+			}
+			else {
+				// Close sub-lists
+				const subLists = list.querySelectorAll(".collapsible");
+				console.log(subLists);
+				for (let s = 0; s < subLists.length; s++) {
+					const subList = subLists[s];
+					if (subList.ariaExpanded === "true") {
+						console.log("Test");
+						subList.ariaExpanded = false;
+					}
+				}
+			}
 		});
 	}
 };
