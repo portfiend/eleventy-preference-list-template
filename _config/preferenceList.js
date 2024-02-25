@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const yaml = require("js-yaml");
 const opinions = require("../src/_data/opinions.json");
 const preferences = {};
 
@@ -69,19 +70,19 @@ module.exports = function (eleventyConfig) {
 			</div>`).join("");
 
 		return `
-		<section id="pref-${slugify(pref.name)}" class="collapsible collapsible-preference" data-collapsible-type="preference" aria-expanded="false">
+		<article id="pref-${slugify(pref.name)}" class="collapsible collapsible-preference" data-collapsible-type="preference" aria-expanded="false">
 			<header>
-				<button class="collapsible-button">
-					<div class="c-button-name" tabindex="0">${pref.name}</div>
+				<button class="collapsible-button" tabindex="0">
+					<div class="c-button-name">${pref.name}</div>
 					<div class="c-button-icons">${symbols && `${symbols}` || ""}</div>
 				</button>
 			</header>
 			<main class="collapsible-content">
 				<section class="pref-opinions">${opins}</section>
 				<section class="pref-definition"><p><b>Definition:</b> ${pref.definition}</p></section>
-				<section class="pref-opinion-description"><p><b>Opinion:</b></p> ${this.markdownEngine.render(content)}</section>
+				<section class="pref-opinion-description"><p><b>Preferences:</b></p> ${this.markdownEngine.render(content)}</section>
 			</main>
-		</section>
+		</article>
 		`;
 	};
 
@@ -100,6 +101,13 @@ const initializePreferences = () => {
 			const json = JSON.parse(data);
 			const filename = path.basename(file, '.json');
 			preferences[filename] = json;
+		}
+		else if (file.endsWith('.yaml')) {
+			const filePath = path.join(directory, file);
+			const data = fs.readFileSync(filePath, 'utf8');
+			const yamlData = yaml.load(data);
+			const filename = path.basename(file, '.yaml');
+			preferences[filename] = yamlData;
 		}
 	});
 };

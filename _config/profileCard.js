@@ -5,11 +5,10 @@ module.exports = function (eleventyConfig) {
 			linksList += `<li><a href="${links[key]}">${key}</a></li>`;
 		}
 		linksList += '</ul>';
-
 		return `
 			<article class="profile-card">
 			<aside class="pcard-left">
-				<img src="/assets/img/${iconPath || "bust.svg"}" class="pcard-icon" alt="Icon for {{pageTitle}}">
+				<img src="/assets/img/${iconPath || "bust.svg"}" class="pcard-icon" alt="Icon for ${this.ctx.pageTitle}">
 				${linksList}
 			</aside>
 			<main class="pcard-right">

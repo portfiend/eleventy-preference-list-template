@@ -25,5 +25,8 @@
     "eslint": "^8.54.0",
     "markdown-it-div": "^1.1.0",
     "sass": "^1.69.5"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
   }
 }
